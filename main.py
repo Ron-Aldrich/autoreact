@@ -24,6 +24,7 @@ def react():
     assetfile.file2()
     assetfile.file3()
     assetfile.file4()
+    assetfile.file5()
     
     
    
