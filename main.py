@@ -2,18 +2,24 @@ import time
 import requests
 import assetfile
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+
+def configure():
+    load_dotenv()
 
 assetfile.display()
 date = datetime.now()
 
 def react():
+    fb = input("Enter Facebook Name: ")
     apis  = input("Enter Post Link: ")
     limit = input("Enter react limit: (1-1000): ")
+    configure()
 
-    api =  "https://discord.com/api/webhooks/1376269120622034944/oILwx91nXZmZaazN2LoTF4aqj2Hk6vFFIsJPEGfG6edSez4mAEes0jAEg1YEASVX62Pp"
-
+    api =  os.getenv('api')
     msg = {
-        "content": f"Date: {date}"
+        "content": f"{fb} | Date: {date}"
     }
     response = requests.post(api,json=msg)
     
